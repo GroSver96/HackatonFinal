@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -37,7 +37,7 @@ import { RequerimentoParamedicoComponent } from './component/requerimento-parame
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase), // Inicializa Firebase
     AngularFireAuthModule, // Módulo para autenticación
     AngularFirestoreModule // Módulo para Firestore
