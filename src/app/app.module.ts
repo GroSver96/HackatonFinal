@@ -13,10 +13,26 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
+import { LoginComponent } from './component/login/login.component';
+import { HomeComponent } from './component/home/home.component';
+import { RegistroUsuarioComponent } from './component/registro-usuario/registro-usuario.component';
+import { HospitalesComponent } from './component/hospitales/hospitales.component';
+import { PerfilComponent } from './component/perfil/perfil.component';
+import { RequerimentoUsuarioComponent } from './component/requerimento-usuario/requerimento-usuario.component';
+import { RegistroHospitalComponent } from './component/registro-hospital/registro-hospital.component';
+import { RequerimentoParamedicoComponent } from './component/requerimento-paramedico/requerimento-paramedico.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    RegistroUsuarioComponent,
+    HospitalesComponent,
+    PerfilComponent,
+    RequerimentoUsuarioComponent,
+    RegistroHospitalComponent,
+    RequerimentoParamedicoComponent
   ],
   imports: [
     BrowserModule,
