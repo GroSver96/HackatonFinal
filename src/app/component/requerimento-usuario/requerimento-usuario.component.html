@@ -1,2 +1,38 @@
-<p>requerimento-usuario works!</p>
 <button (click)="goHome()">Home</button>
+
+<div class="solicitud-ambulancia-form">
+    <h2>Solicitud de Ambulancia</h2>
+    <form (ngSubmit)="onSubmit()">
+    <p>Solicitante: {{ request.userName }}</p>
+      <!-- Tipo de Emergencia -->
+      <label for="emergencyType">Tipo de Emergencia:</label>
+      <select id="emergencyType" [(ngModel)]="request.emergencyType" name="emergencyType" required>
+        <option value="" disabled selected>Seleccione...</option>
+        <option value="accidente">Accidente</option>
+        <option value="enfermedad">Enfermedad</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <!-- Gravedad -->
+      <label for="severity">Gravedad:</label>
+      <select id="severity" [(ngModel)]="request.severity" name="severity" required>
+        <option value="" disabled selected>Seleccione...</option>
+        <option value="leve">Leve</option>
+        <option value="moderada">Moderada</option>
+        <option value="grave">Grave</option>
+      </select>
+
+      <!-- Descripción del accidente -->
+      <label for="description">Descripción del Accidente:</label>
+      <textarea id="description" [(ngModel)]="request.description" name="description" placeholder="Describa la condición del paciente" rows="3" required></textarea>
+
+      <!-- Ubicación en tiempo real -->
+      <label for="location">Ubicación en Tiempo Real:</label>
+      <input type="text" id="location" [(ngModel)]="request.location" name="location" placeholder="Esperando ubicación..." readonly required>
+
+      <!-- Mostrar ubicación en pantalla -->
+      <p id="location-display" class="location-display">Ubicación: Latitud y Longitud no disponibles</p>
+
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+</div>
