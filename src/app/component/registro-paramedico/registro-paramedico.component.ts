@@ -16,7 +16,7 @@ export class RegistroParamedicoComponent {
     password: '',
     bloodType: '',
     phone: '',
-    role: 'paramedico'  // Establecer el rol como 'paramedico' por defecto
+    role: 'paramedico'
   };
 
   constructor(
@@ -26,18 +26,17 @@ export class RegistroParamedicoComponent {
 
   // Método para manejar el envío del formulario
   onSubmit() {
+    // Registrar al paramédico sin cambiar la sesión actual del administrador
     this.usuarioService.register(this.user.email, this.user.password, this.user)
       .subscribe(
         (response) => {
-          console.log('Usuario registrado exitosamente');
-          this.router.navigate(['/home']); // Redirige al componente de inicio o bienvenida
-
-          // Limpiar el formulario
+          console.log('Usuario paramédico registrado exitosamente');
+          this.router.navigate(['/home']);
           this.clearForm();
         },
         (error) => {
-          console.error('Error al registrar al usuario:', error);
-          alert('Error al registrar al usuario. Por favor, intenta nuevamente.');
+          console.error('Error al registrar al paramédico:', error);
+          alert('Error al registrar al paramédico. Por favor, intenta nuevamente.');
         }
       );
   }
@@ -51,11 +50,11 @@ export class RegistroParamedicoComponent {
     this.user.password = '';
     this.user.bloodType = '';
     this.user.phone = '';
-    this.user.role = 'paramedico'; // Asegurarse de que el rol sea 'paramedico'
+    this.user.role = 'paramedico';
   }
 
 // Método para redirigir al home
 goHome() {
-  this.router.navigate(['/home']); // Asegúrate de que '/home' sea la ruta a la página de inicio
+  this.router.navigate(['/home']);
 }
 }

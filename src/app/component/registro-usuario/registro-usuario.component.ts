@@ -33,7 +33,7 @@ export class RegistroUsuarioComponent {
         (response) => {
           if (response.success) {
             console.log('Usuario registrado exitosamente');
-            this.router.navigate(['/home']); // Redirige al componente de bienvenida
+            this.router.navigate(['/home']);
             
             // Limpiar el formulario
             this.clearForm();
