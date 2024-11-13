@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="home-container">
+    <!-- Mensaje de bienvenida con el nombre del usuario -->
+    <h1>Bienvenido, {{ userName }}!</h1>
+  
+    <!-- Botón de logout visible para todos los roles -->
+    <button (click)="logout()">Cerrar sesión</button>
+  
+    <!-- Botón para redirigir al componente Perfil, visible para todos los roles -->
+    <button (click)="goToPerfil()">Ir a Perfil</button>
+  
+    <!-- Botón para redirigir al componente Hospitales, visible para todos los roles -->
+    <button (click)="goToHospitales()">Ir a Hospitales</button>
+  
+    <!-- Botón para requerimiento de usuario, visible para todos los roles -->
+    <button (click)="goToRequerimentoUsuario()">Requerimiento Usuario</button>
+  
+    <!-- Botón para requerimiento paramédico, visible solo para paramédicos -->
+    <button *ngIf="isParamedico" (click)="goToRequerimentoParamedico()">Requerimiento Paramédico</button>
+  
+    <!-- Botón para registrar hospital, visible solo para administradores -->
+    <button *ngIf="isAdmin" (click)="goToRegistroHospital()">Registrar Hospital</button>
+  
+    <!-- Botón para registrar usuario (paramédico), visible solo para administradores -->
+    <button *ngIf="isAdmin" (click)="goToRegistroUsuario()">Registrar Paramédico</button>
+  </div>
+  
