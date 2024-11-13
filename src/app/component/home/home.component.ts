@@ -63,8 +63,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/requerimento-paramedico']);
   }
 
-  goToRegistroUsuario() {
-    this.router.navigate(['/registro'], {
+  goToRegistroParamedico() {
+    this.router.navigate(['/registro-paramedico'], {
       queryParams: { role: 'paramedico' } // Pasa el rol paramédico por defecto
     });
   }

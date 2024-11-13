@@ -21,6 +21,7 @@ import { PerfilComponent } from './component/perfil/perfil.component';
 import { RequerimentoUsuarioComponent } from './component/requerimento-usuario/requerimento-usuario.component';
 import { RegistroHospitalComponent } from './component/registro-hospital/registro-hospital.component';
 import { RequerimentoParamedicoComponent } from './component/requerimento-paramedico/requerimento-paramedico.component';
+import { RegistroParamedicoComponent } from './component/registro-paramedico/registro-paramedico.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RequerimentoParamedicoComponent } from './component/requerimento-parame
     PerfilComponent,
     RequerimentoUsuarioComponent,
     RegistroHospitalComponent,
-    RequerimentoParamedicoComponent
+    RequerimentoParamedicoComponent,
+    RegistroParamedicoComponent
   ],
   imports: [
     BrowserModule,
