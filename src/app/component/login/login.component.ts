@@ -1,8 +1,7 @@
-// login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../services/usuario.service';  // Servicio para usuarios y paramédicos
-import { AdminService } from '../../services/admin.service';      // Servicio para administradores (hospitales)
+import { UsuarioService } from '../../services/usuario.service';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +24,7 @@ export class LoginComponent {
       // 1. Intentar autenticación en la base de datos de usuarios/paramédicos
       const user = await this.usuarioService.login(this.email, this.password);
       if (user) {
+        // Redirigir según el rol del usuario
         if (user.role === 'paramedico') {
           this.router.navigate(['/home']);
         } else {

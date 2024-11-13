@@ -12,28 +12,49 @@ export class AdminService {
     private firestore: Firestore
   ) {}
 
-  // Método para iniciar sesión
+  // Método para iniciar sesión (verifica si es correo institucional)
   async login(email: string, password: string): Promise<any> {
     try {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
+      
+      // Verificar si el correo pertenece a la institución (ejemplo: termina en @institucion.com)
       if (userCredential.user?.email && userCredential.user.email.endsWith('@institucion.com')) {
-        return userCredential.user;
+        // Aquí podemos agregar más lógica si lo deseas, como obtener los datos del hospital desde Firestore
+        return userCredential.user; // Regresar el usuario autenticado
       } else {
-        return null;
+        throw new Error('Correo no institucional');
       }
     } catch (error) {
-      console.error("Error en login de admin:", error);
-      return null;
+      console.error('Error al iniciar sesión en admin:', error);
+      throw error; // Lanzamos el error para que el componente lo maneje
     }
   }
 
-   // Método para registrar un hospital
+  // Método para registrar un hospital y crear el usuario en Firebase Authentication
   registerHospital(hospitalData: any): Observable<any> {
-    const hospitalWithRole = {
-      ...hospitalData,
-      role: 'admin',
-    };
-    const hospitalCollection = collection(this.firestore, 'hospitals');
-    return from(addDoc(hospitalCollection, hospitalWithRole));
-}
+    return new Observable((observer) => {
+      // Crear usuario en Firebase Authentication
+      this.afAuth.createUserWithEmailAndPassword(hospitalData.email, hospitalData.password)
+        .then(async (userCredential) => {
+          const user = userCredential.user;
+
+          // Si el usuario se creó correctamente, guardar la información del hospital en Firestore
+          const hospitalWithRole = {
+            ...hospitalData,
+            role: 'admin', // Rol por defecto
+            uid: user?.uid // Guardar el UID del usuario de Firebase
+          };
+
+          const hospitalCollection = collection(this.firestore, 'hospitals');
+          await addDoc(hospitalCollection, hospitalWithRole);
+
+          observer.next('Hospital registrado con éxito');
+          observer.complete();
+        })
+        .catch((error) => {
+          console.error('Error al registrar el hospital:', error);
+          observer.error(error); // Lanza el error si algo sale mal
+        });
+    });
+  }
 }

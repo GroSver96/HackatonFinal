@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../services/admin.service';  // Asegúrate de crear el servicio adecuado
+import { AdminService } from '../../services/admin.service'; // Asegúrate de tener el servicio correcto
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,10 +25,11 @@ export class RegistroHospitalComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+    // Llamamos al servicio para registrar el hospital y crear el usuario
     this.adminService.registerHospital(this.hospital).subscribe({
       next: (response) => {
         console.log('Hospital registrado con éxito:', response);
-        this.router.navigate(['/home']); // Redirige al inicio o donde sea necesario
+        this.router.navigate(['/home']); // Redirige al inicio después de registrar
       },
       error: (error) => {
         console.error('Error al registrar el hospital:', error);
@@ -40,8 +41,7 @@ export class RegistroHospitalComponent implements OnInit {
     this.router.navigate(['/home']); // O la ruta que corresponda para retroceder
   }
 
-// Método para redirigir al home
-goHome() {
-  this.router.navigate(['/home']); // Asegúrate de que '/home' sea la ruta a la página de inicio
-}
+  goHome() {
+    this.router.navigate(['/home']); // Redirige al home
+  }
 }
