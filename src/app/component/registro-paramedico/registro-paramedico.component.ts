@@ -19,7 +19,10 @@ export class RegistroParamedicoComponent {
     role: 'paramedico'  // Establecer el rol como 'paramedico' por defecto
   };
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router,
+  ) {}
 
   // Método para manejar el envío del formulario
   onSubmit() {
@@ -50,4 +53,9 @@ export class RegistroParamedicoComponent {
     this.user.phone = '';
     this.user.role = 'paramedico'; // Asegurarse de que el rol sea 'paramedico'
   }
+
+// Método para redirigir al home
+goHome() {
+  this.router.navigate(['/home']); // Asegúrate de que '/home' sea la ruta a la página de inicio
+}
 }

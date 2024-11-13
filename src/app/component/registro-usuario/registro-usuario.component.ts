@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,11 @@ export class RegistroUsuarioComponent {
     role: 'usuario'
   };
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router,
+    private location: Location
+  ) {}
 
   // Método para manejar el envío del formulario
   onSubmit() {
@@ -54,5 +59,10 @@ export class RegistroUsuarioComponent {
     this.user.bloodType = '';
     this.user.phone = '';
     this.user.role = 'usuario';
+  }
+
+  // Método para redirigir atras
+  goBack() {
+    this.location.back();
   }
 }
