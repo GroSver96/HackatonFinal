@@ -28,7 +28,6 @@ export class RegistroParamedicoComponent {
 
   // Método para manejar el envío del formulario
   onSubmit() {
-    // Registrar al paramédico sin cambiar la sesión actual del administrador
     this.usuarioService.register(this.user.email, this.user.password, this.user)
       .subscribe(
         (response) => {
