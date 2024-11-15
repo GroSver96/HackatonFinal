@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register-paramedico',
@@ -12,16 +13,17 @@ export class RegistroParamedicoComponent {
     firstName: '',
     lastName: '',
     address: '',
+    phone: '',
     email: '',
     password: '',
     bloodType: '',
-    phone: '',
     role: 'paramedico'
   };
 
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   // Método para manejar el envío del formulario
@@ -31,8 +33,16 @@ export class RegistroParamedicoComponent {
       .subscribe(
         (response) => {
           console.log('Usuario paramédico registrado exitosamente');
-          this.router.navigate(['/home']);
-          this.clearForm();
+           // Mostrar notificación
+          const snackBarRef = this.snackBar.open('Hospital registrado con éxito', 'Aceptar', {
+          duration: 5000, // Duración de la notificación (ms)
+          verticalPosition: 'top', // Posición vertical
+          horizontalPosition: 'center', // Posición horizontal
+          });
+          snackBarRef.onAction().subscribe(() => {
+          snackBarRef.dismiss(); // Cierra la notificación
+          });
+        this.clearForm();
         },
         (error) => {
           console.error('Error al registrar al paramédico:', error);
@@ -46,10 +56,10 @@ export class RegistroParamedicoComponent {
     this.user.firstName = '';
     this.user.lastName = '';
     this.user.address = '';
+    this.user.phone = '';
     this.user.email = '';
     this.user.password = '';
     this.user.bloodType = '';
-    this.user.phone = '';
     this.user.role = 'paramedico';
   }
 

@@ -35,7 +35,7 @@ export class LoginComponent {
 
       // 2. Intentar autenticación en la base de datos de administradores (hospitales)
       const admin = await this.adminService.login(this.email, this.password);
-      if (admin) {
+      if (admin && admin.role === 'admin') {
         this.router.navigate(['/home']);
         return;
       }

@@ -13,10 +13,10 @@ export class RegistroUsuarioComponent {
     firstName: '',
     lastName: '',
     address: '',
+    phone: '',
     email: '',
     password: '',
     bloodType: '',
-    phone: '',
     role: 'usuario'
   };
 
@@ -54,10 +54,10 @@ export class RegistroUsuarioComponent {
     this.user.firstName = '';
     this.user.lastName = '';
     this.user.address = '';
+    this.user.phone = '';
     this.user.email = '';
     this.user.password = '';
     this.user.bloodType = '';
-    this.user.phone = '';
     this.user.role = 'usuario';
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore, doc, getDoc } from '@angular/fire/firestore'; // Para obtener el rol desde Firestore
+import { getDocFromServer } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -22,21 +23,34 @@ export class HomeComponent implements OnInit {
 
   // Método para obtener el rol y nombre del usuario desde Firebase Firestore
   async getUserRole() {
-    const user = await this.afAuth.currentUser; // Obtén el usuario actualmente autenticado
-    if (user) {
-      // Si el usuario está autenticado, obtenemos su rol desde Firestore
-      const userDoc = await getDoc(doc(this.firestore, 'users', user.uid));
-      if (userDoc.exists()) {
-        const data = userDoc.data();
-        this.userRole = data?.['role'] || 'usuario'; // Usamos la notación de corchetes para acceder al rol
-        this.userName = data?.['firstName'] || ''; // Usamos la notación de corchetes para acceder al nombre
-        this.isAdmin = this.userRole === 'admin';
-        this.isParamedico = this.userRole === 'paramedico';
-      } else {
-        console.error("No se encontró el documento de usuario en Firestore");
+    try {
+      const user = await this.afAuth.currentUser; // Obtén el usuario actualmente autenticado
+      if (user) {
+        console.log("Usuario autenticado con UID:", user.uid); // Log para confirmar el UID
+        
+        // Intenta obtener el documento en la colección 'users'
+        let userDoc = await getDocFromServer(doc(this.firestore, 'users', user.uid));
+        if (!userDoc.exists()) {
+        console.log("Documento no encontrado en 'users', intentando en 'hospitals'");
+        userDoc = await getDocFromServer(doc(this.firestore, 'hospitals', user.uid));
+        }
+        
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          console.log("Documento encontrado en Firestore:", data);
+          this.userRole = data?.['role'] || 'usuario';
+          this.userName = data?.['firstName'] || data?.['name'] || '';
+          this.isAdmin = this.userRole === 'admin';
+          this.isParamedico = this.userRole === 'paramedico';
+        } else {
+          console.error("No se encontró el documento de usuario en Firestore");
+        }
       }
+    } catch (error) {
+      console.error("Error al obtener el rol del usuario:", error);
     }
   }
+  
   
 
   // Método de logout
