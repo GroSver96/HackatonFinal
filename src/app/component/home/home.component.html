@@ -14,8 +14,8 @@
     <!-- Botón para requerimiento de usuario, visible para todos los roles -->
     <button (click)="goToRequerimentoUsuario()">Solicitar Ambulancia</button>
   
-    <!-- Botón para requerimiento paramédico, visible solo para paramédicos -->
-    <button *ngIf="isParamedico" (click)="goToRequerimentoParamedico()">Solicitudes de Ambulancias</button>
+    <!-- Botón para requerimiento paramédico, visible para todos los paramedicos -->
+    <button (click)="goToRequerimentoParamedico()">Solicitudes de Ambulancias</button>
   
     <!-- Botón para registrar hospital, visible solo para administradores -->
     <button *ngIf="isAdmin" (click)="goToRegistroHospital()">Registrar Hospital</button>
