@@ -1,26 +1,58 @@
-<div class="home-container">
-    <!-- Mensaje de bienvenida con el nombre del usuario -->
+<header class="home-header">
+  <!-- Contenedor del mensaje de bienvenida -->
+  <div class="welcome-message">
     <h1>Bienvenido, {{ userName }}!</h1>
-  
+  </div>
+
+  <!-- Contenedor de botones -->
+  <nav class="navigation-buttons">
     <!-- Botón de logout visible para todos los roles -->
     <button (click)="logout()">Cerrar sesión</button>
-  
+
     <!-- Botón para redirigir al componente Perfil, visible para todos los roles -->
     <button (click)="goToPerfil()">Ir a Perfil</button>
-  
+
     <!-- Botón para redirigir al componente Hospitales, visible para todos los roles -->
     <button (click)="goToHospitales()">Ir a Hospitales</button>
-  
+
     <!-- Botón para requerimiento de usuario, visible para todos los roles -->
     <button (click)="goToRequerimentoUsuario()">Solicitar Ambulancia</button>
-  
-    <!-- Botón para requerimiento paramédico, visible para todos los paramedicos -->
-    <button (click)="goToRequerimentoParamedico()">Solicitudes de Ambulancias</button>
-  
+
+    <!-- Botón para requerimiento paramédico, visible para paramédicos -->
+    <button *ngIf="isParamedico" (click)="goToRequerimentoParamedico()">Solicitudes de Ambulancias</button>
+
     <!-- Botón para registrar hospital, visible solo para administradores -->
     <button *ngIf="isAdmin" (click)="goToRegistroHospital()">Registrar Hospital</button>
-  
+
     <!-- Botón para registrar usuario (paramédico), visible solo para administradores -->
     <button *ngIf="isAdmin" (click)="goToRegistroParamedico()">Registrar Paramédico</button>
-  </div>
-  
+  </nav>
+</header>
+
+<!-- Contenido adicional relacionado con el área de salud -->
+<main class="health-content">
+  <section class="health-tips">
+    <h2>Consejos para tu salud</h2>
+    <ul>
+      <li>Mantente hidratado: bebe al menos 8 vasos de agua al día.</li>
+      <li>Realiza actividad física regularmente para fortalecer tu cuerpo.</li>
+      <li>Descansa lo suficiente: procura dormir entre 7 y 8 horas diarias.</li>
+      <li>Mantén una alimentación equilibrada, rica en frutas y vegetales.</li>
+    </ul>
+  </section>
+
+  <section class="emergency-guidelines">
+    <h2>¿Qué hacer en caso de emergencia?</h2>
+    <p>
+      En caso de emergencia médica, llama inmediatamente al servicio de ambulancias. 
+      Proporciona información clara sobre tu ubicación y la naturaleza del problema.
+    </p>
+    <p>Recuerda mantener la calma y seguir las instrucciones del operador.</p>
+  </section>
+
+  <section class="hospital-directory">
+    <h2>Hospitales cercanos</h2>
+    <p>Consulta nuestro directorio para encontrar los hospitales más cercanos y sus servicios disponibles.</p>
+    <button (click)="goToHospitales()">Ver hospitales</button>
+  </section>
+</main>

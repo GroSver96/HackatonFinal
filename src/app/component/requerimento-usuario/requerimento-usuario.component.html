@@ -1,7 +1,15 @@
-<button (click)="goHome()">Home</button>
+
+
+<header class="app-header">
+  <h2>Solicitud de Ambulancia</h2>
+  <!-- Botón de inicio -->
+  <nav class="navigation">
+    <button (click)="goHome()">Inicio</button>
+  </nav>
+</header>
 
 <div class="solicitud-ambulancia-form">
-    <h2>Solicitud de Ambulancia</h2>
+
     <form (ngSubmit)="onSubmit()">
     <p>Solicitante: {{ request.userName }}</p>
       <!-- Tipo de Emergencia -->

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';  // Importar FormsModule
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../enviroments/enviroments';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,25 +35,33 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     PerfilComponent,
     RequerimentoUsuarioComponent,
     RegistroHospitalComponent,
-    RequerimentoParamedicoComponent,
+    RequerimentoUsuarioComponent,
     RegistroParamedicoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule,  // Asegúrate de que FormsModule esté aquí
     AngularFireModule.initializeApp(environment.firebase), // Inicializa Firebase
     AngularFireAuthModule, // Módulo para autenticación
     AngularFirestoreModule, // Módulo para Firestore
     MatSnackBarModule
   ],
   providers: [
-    provideFirebaseApp(() => initializeApp({"projectId":"hackaton-final","appId":"1:1053176790331:web:6841b9e43c8e458eb40b1e","storageBucket":"hackaton-final.firebasestorage.app","apiKey":"AIzaSyCRC50ixfPi-RGZSoptV_BHPQ6vdyvJB1o","authDomain":"hackaton-final.firebaseapp.com","messagingSenderId":"1053176790331"})),
+    provideFirebaseApp(() => initializeApp({
+      "projectId": "hackaton-final",
+      "appId": "1:1053176790331:web:6841b9e43c8e458eb40b1e",
+      "storageBucket": "hackaton-final.firebasestorage.app",
+      "apiKey": "AIzaSyCRC50ixfPi-RGZSoptV_BHPQ6vdyvJB1o",
+      "authDomain": "hackaton-final.firebaseapp.com",
+      "messagingSenderId": "1053176790331"
+    })),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideAnimationsAsync()
+    
   ],
   bootstrap: [AppComponent]
 })

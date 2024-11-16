@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore, doc, setDoc, collection, addDoc, getDoc } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
-  constructor(private afAuth: AngularFireAuth, private firestore: Firestore) {}
+  constructor(
+    private afAuth: AngularFireAuth,
+    private firestore: Firestore,
+    private angularFirestore: AngularFirestore
+  ) {}
 
   // Método para iniciar sesión
   async login(email: string, password: string): Promise<any> {
@@ -15,7 +20,7 @@ export class UsuarioService {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
       return userCredential.user;
     } catch (error) {
-      console.error("Error en login:", error);
+      console.error('Error en login:', error);
       return null;
     }
   }
@@ -34,7 +39,7 @@ export class UsuarioService {
               email: email,
               bloodType: userData.bloodType,
               phone: userData.phone,
-              role: userData.role || 'user'
+              role: userData.role || 'user',
             });
             return { success: true };
           } catch (error) {
@@ -55,25 +60,32 @@ export class UsuarioService {
     return from(addDoc(ambulanceRequestsCollection, requestData));
   }
 
-  // Metodo para conseguir el nombre
-async getNombreUsuario(): Promise<string | null> {
-  const user = await this.afAuth.currentUser; // Obtener el usuario autenticado
-  if (user) {
-    console.log('Usuario autenticado:', user.uid); // Agregar log para verificar el UID
+  // Método para conseguir el nombre del usuario
+  async getNombreUsuario(): Promise<string | null> {
+    const user = await this.afAuth.currentUser; // Obtener el usuario autenticado
+    if (user) {
+      console.log('Usuario autenticado:', user.uid); // Agregar log para verificar el UID
 
-    const userDocRef = doc(this.firestore, 'users', user.uid);
-    const userDoc = await getDoc(userDocRef);
+      const userDocRef = doc(this.firestore, 'users', user.uid);
+      const userDoc = await getDoc(userDocRef);
 
-    if (userDoc.exists()) {
-      console.log('Documento de usuario encontrado:', userDoc.data()); // Verifica los datos del documento
-      return userDoc.data()?.['firstName'] || null; // Usar la notación de corchetes para acceder a 'firstName'
+      if (userDoc.exists()) {
+        console.log('Documento de usuario encontrado:', userDoc.data()); // Verifica los datos del documento
+        return userDoc.data()?.['firstName'] || null; // Usar la notación de corchetes para acceder a 'firstName'
+      } else {
+        console.log('El documento del usuario no existe.');
+        return null; // Si el documento no existe, retornar null
+      }
     } else {
-      console.log('El documento del usuario no existe.');
-      return null; // Si el documento no existe, retornar null
+      console.log('No hay un usuario autenticado.');
+      return null;
     }
-  } else {
-    console.log('No hay un usuario autenticado.');
-    return null;
   }
-}
+
+  // Método para obtener datos del usuario por UID
+  getUserData(uid: string): Observable<any> {
+    return this.angularFirestore.collection('users').doc(uid).valueChanges();
+  }
+
+  
 }
