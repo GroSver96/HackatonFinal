@@ -1,0 +1,45 @@
+/* Estilos para el header */
+.app-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para la lista de hospitales */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Estilos para cada hospital */
+  .hospital-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .hospital-card h2 {
+    color: #4CAF50;
+  }
+  
+  .hospital-card p {
+    margin: 5px 0;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  

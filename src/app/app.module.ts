@@ -21,9 +21,12 @@ import { HospitalesComponent } from './component/hospitales/hospitales.component
 import { PerfilComponent } from './component/perfil/perfil.component';
 import { RequerimentoUsuarioComponent } from './component/requerimento-usuario/requerimento-usuario.component';
 import { RegistroHospitalComponent } from './component/registro-hospital/registro-hospital.component';
-import { RequerimentoParamedicoComponent } from './component/requerimento-paramedico/requerimento-paramedico.component';
 import { RegistroParamedicoComponent } from './component/registro-paramedico/registro-paramedico.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RequerimentoParamedicoComponent } from './component/requerimento-paramedico/requerimento-paramedico.component';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     RequerimentoUsuarioComponent,
     RegistroHospitalComponent,
     RequerimentoUsuarioComponent,
-    RegistroParamedicoComponent
+    RegistroParamedicoComponent,
+  
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AngularFireModule.initializeApp(environment.firebase), // Inicializa Firebase
     AngularFireAuthModule, // Módulo para autenticación
     AngularFirestoreModule, // Módulo para Firestore
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideFirebaseApp(() => initializeApp({

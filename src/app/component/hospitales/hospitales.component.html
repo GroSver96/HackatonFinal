@@ -1,10 +1,30 @@
-
 <header class="app-header">
-    <!-- Botón de inicio -->
-    <nav class="navigation">
-      <button (click)="goHome()">Inicio</button>
-    </nav>
-  </header>
+  <h1>Lista de Hospitales</h1>
+  <!-- Botón de inicio -->
+  <nav class="navigation">
+    <button (click)="goHome()">Inicio</button>
+  </nav>
+</header>
 
+<!-- hospitales.component.html -->
+<div>
+ 
 
-  
+  <!-- Mostrar los hospitales obtenidos -->
+  <ul>
+    <li *ngFor="let hospital of hospitals">
+      <div class="hospital-card">
+        <h2>{{ hospital.name }}</h2>
+        <p><strong>Dirección:</strong> {{ hospital.address }}</p>
+        <p><strong>Nivel:</strong> {{ hospital.level }}</p>
+        <!-- <p><strong>Correo Electrónico:</strong> {{ hospital.email }}</p> -->
+        <p><strong>Teléfono:</strong> {{ hospital.phone }}</p>
+        <!-- <p><strong>Rol:</strong> {{ hospital.role }}</p> -->
+        <!-- <p><strong>Contraseña:</strong> {{ hospital.password }}</p> Aunque no es recomendable mostrar la contraseña -->
+      </div>
+    </li>
+  </ul>
+
+  <!-- Botón para ir al Home -->
+  <button (click)="goHome()">Volver al Home</button>
+</div>
