@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   userName: string = ''; // Almacena el nombre del usuario
   isAdmin: boolean = false; // Para saber si el usuario es administrador
   isParamedico: boolean = false; // Para saber si el usuario es paramédico
+isusuario: any;
 
   constructor(private router: Router, private afAuth: AngularFireAuth, private firestore: Firestore) {}
 
