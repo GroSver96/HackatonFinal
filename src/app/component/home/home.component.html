@@ -19,13 +19,17 @@
     <button (click)="goToRequerimentoUsuario()">Solicitar Ambulancia</button>
 
     <!-- Botón para requerimiento paramédico, visible para paramédicos -->
-    <button *ngIf="isParamedico" (click)="goToRequerimentoParamedico()">Solicitudes de Ambulancias</button>
+    <button *ngIf="isParamedico" (click)="goToRequerimentoParamedico()">Solicitudes de Paramedico</button>
 
     <!-- Botón para registrar hospital, visible solo para administradores -->
     <button *ngIf="isAdmin" (click)="goToRegistroHospital()">Registrar Hospital</button>
 
     <!-- Botón para registrar usuario (paramédico), visible solo para administradores -->
     <button *ngIf="isAdmin" (click)="goToRegistroParamedico()">Registrar Paramédico</button>
+
+    <!-- Botón para redirigir a solicitudes para hospitales -->
+    <button *ngIf="isAdmin"(click)="goToSolicitudesParaHospitales()">Ir a Solicitudes para Hospitales</button>
+
   </nav>
 </header>
 

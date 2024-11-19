@@ -1,0 +1,173 @@
+/* Estilo general del componente */
+.app-header {
+    background-color: #2d87f0;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app-header h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .navigation button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #2d87f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .navigation button:hover {
+    background-color: #e1f2ff;
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  /* Estilo de la lista de solicitudes */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  li span {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  
+  li button:hover {
+    background-color: #ff6666;
+  }
+  
+  /* Estilo del formulario para agregar solicitud */
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  form input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  form button {
+    background-color: #2d87f0;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #1a66c6;
+  }
+  
+  /* Estilo para el contenedor de edición */
+  .edit-form {
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-form input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .edit-form button {
+    background-color: #2d87f0;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .edit-form button:hover {
+    background-color: #1a66c6;
+  }
+  
+  .edit-form .cancel-button {
+    background-color: #ccc;
+    margin-left: 10px;
+  }
+  
+  .edit-form .cancel-button:hover {
+    background-color: #aaa;
+  }
+  
+  /* Estilo de botones de edición y eliminación en la lista */
+  button.edit-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.edit-btn:hover {
+    background-color: #66bb6a;
+  }
+  
+  button.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button.delete-btn:hover {
+    background-color: #f56565;
+  }
+  

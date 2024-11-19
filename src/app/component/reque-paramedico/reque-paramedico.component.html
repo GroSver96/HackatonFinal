@@ -1,0 +1,57 @@
+<header class="app-header">
+  <!-- Botón de inicio -->
+  <nav class="navigation"> 
+      <h1>requerimiento-paramedico</h1>
+    <button (click)="goHome()">Inicio</button>
+  </nav>
+</header>
+
+<div>
+  <h2>Solicitudes de Paramedico</h2>
+
+  <!-- Mostrar lista de solicitudes -->
+  <ul>
+    <li *ngFor="let request of ambulanceRequests">
+      <span>
+        <ul>
+            <!-- <li><strong>Nombre:</strong> {{ request.nombre }}</li> -->
+            <li><strong>Ubicación:</strong> {{ request.location }}</li>
+            <li><strong>Tipo de emergencia:</strong> {{ request.emergencyType }}</li>
+            <li><strong>Severidad:</strong> {{ request.severity }}</li>
+            <li><strong>Usuario:</strong> {{ request.userName }}</li>
+        </ul>
+    </span>
+      <!-- Botón para editar solicitud -->
+      <button (click)="editRequest(request.id)">Editar</button>
+      <button (click)="deleteRequest(request.id)">Eliminar</button>
+    </li>
+  </ul>
+
+  <!-- Formulario para agregar nueva solicitud -->
+  <!-- <form (submit)="addRequest()">
+    <input type="text" placeholder="Nombre" [(ngModel)]="newRequest.nombre" name="nombre" required />
+    <input type="text" placeholder="Ubicación del paciente (Latitud, Longitud)" [(ngModel)]="newRequest.location" name="location" required />
+    <input type="text" placeholder="Tipo de Emergencia" [(ngModel)]="newRequest.emergencyType" name="emergencyType" required />
+    <input type="text" placeholder="Severidad" [(ngModel)]="newRequest.severity" name="severity" required />
+    <input type="text" placeholder="Nombre del usuario" [(ngModel)]="newRequest.userName" name="userName" required />
+    <input type="text" placeholder="Nombre del Paramédico" [(ngModel)]="newRequest.paramedicName" name="paramedicName" required />
+    <input type="text" placeholder="Ubicación del Paramédico (Latitud, Longitud)" [(ngModel)]="newRequest.paramedicLocation" name="paramedicLocation" required />
+    <button type="submit">Agregar Solicitud</button>
+  </form> -->
+
+  <!-- Formulario para editar una solicitud -->
+  <div *ngIf="isEditing">
+    <h3>Editar Solicitud</h3>
+    <form (submit)="saveEditRequest()">
+      <!-- <input type="text" placeholder="Nombre" [(ngModel)]="editRequestData.nombre" name="nombre" required /> -->
+      <input type="text" placeholder="Ubicación del paciente (Latitud, Longitud)" [(ngModel)]="editRequestData.location" name="location" required />
+      <input type="text" placeholder="Tipo de Emergencia" [(ngModel)]="editRequestData.emergencyType" name="emergencyType" required />
+      <input type="text" placeholder="Severidad" [(ngModel)]="editRequestData.severity" name="severity" required />
+      <input type="text" placeholder="Nombre del usuario" [(ngModel)]="editRequestData.userName" name="userName" required />
+      <input type="text" placeholder="Nombre del Paramédico" [(ngModel)]="editRequestData.paramedicName" name="paramedicName" required />
+      <input type="text" placeholder="Ubicación del Paramédico (Latitud, Longitud)" [(ngModel)]="editRequestData.paramedicLocation" name="paramedicLocation" required />
+      <button type="submit">Guardar Cambios</button>
+      <button (click)="cancelEdit()">Cancelar</button>
+    </form>
+  </div>
+</div>

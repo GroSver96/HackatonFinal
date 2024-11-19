@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   }
 
   goToRequerimentoParamedico() {
-    this.router.navigate(['/requerimento-paramedico']);
+    this.router.navigate(['/reque-paramedico']);
   }
 
   goToRegistroParamedico() {
@@ -86,4 +86,13 @@ export class HomeComponent implements OnInit {
   goToRegistroHospital() {
     this.router.navigate(['/registro-hospital']);
   }
+
+    // Método para redirigir a Solicitudes para Hospitales
+    goToSolicitudesParaHospitales(): void {
+      this.router.navigate(['/solicitudes-hospitales']); // Redirige a la ruta configurada
+  
+    }
+
+   
+
 }

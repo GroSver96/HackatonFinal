@@ -6,9 +6,10 @@ import { HomeComponent } from '../app/component/home/home.component';
 import { PerfilComponent } from '../app/component/perfil/perfil.component';
 import { HospitalesComponent } from '../app/component/hospitales/hospitales.component';
 import { RequerimentoUsuarioComponent } from '../app/component/requerimento-usuario/requerimento-usuario.component';
-import { RequerimentoParamedicoComponent } from '../app/component/requerimento-paramedico/requerimento-paramedico.component';
 import { RegistroHospitalComponent } from '../app/component/registro-hospital/registro-hospital.component';
 import { RegistroParamedicoComponent } from '../app/component/registro-paramedico/registro-paramedico.component';
+import { RequeParamedicoComponent } from './component/reque-paramedico/reque-paramedico.component';
+import { SolicitudesParaHospitalesComponent } from './component/solicitudes-para-hospitales/solicitudes-para-hospitales.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },  // Página inicial
@@ -18,9 +19,10 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilComponent},
   { path: 'hospitales', component: HospitalesComponent },
   { path: 'requerimento-usuario', component: RequerimentoUsuarioComponent },
-  { path: 'requerimento-paramedico', component: RequerimentoParamedicoComponent },
+  { path: 'reque-paramedico', component: RequeParamedicoComponent },
   { path: 'registro-hospital', component: RegistroHospitalComponent },
   { path: 'registro-paramedico', component: RegistroParamedicoComponent},
+  { path: 'solicitudes-hospitales', component: SolicitudesParaHospitalesComponent}
 ];
 
 @NgModule({

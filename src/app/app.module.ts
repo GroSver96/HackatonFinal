@@ -6,7 +6,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../enviroments/enviroments';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -23,10 +22,9 @@ import { RequerimentoUsuarioComponent } from './component/requerimento-usuario/r
 import { RegistroHospitalComponent } from './component/registro-hospital/registro-hospital.component';
 import { RegistroParamedicoComponent } from './component/registro-paramedico/registro-paramedico.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { RequerimentoParamedicoComponent } from './component/requerimento-paramedico/requerimento-paramedico.component';
-
-
 import { ReactiveFormsModule } from '@angular/forms';
+import { RequeParamedicoComponent } from './component/reque-paramedico/reque-paramedico.component';
+import { SolicitudesParaHospitalesComponent } from './component/solicitudes-para-hospitales/solicitudes-para-hospitales.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroHospitalComponent,
     RequerimentoUsuarioComponent,
     RegistroParamedicoComponent,
+    RequeParamedicoComponent,
+    SolicitudesParaHospitalesComponent,
   
 
   ],
