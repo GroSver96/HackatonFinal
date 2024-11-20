@@ -6,3 +6,41 @@
       <button (click)="goHome()">Inicio</button>
     </nav>
   </header>
+
+  <!-- solicitudes-para-hospitales.component.html -->
+
+  <!-- Lista de solicitudes -->
+  <div *ngIf="solicitudes.length > 0; else noData">
+    <ul class="solicitudes-list">
+      <li *ngFor="let solicitud of solicitudes" class="solicitud-item">
+        <h3>{{ solicitud.userName }}</h3>
+        
+        <!-- Descripción de la solicitud -->
+        <p><strong>Descripción:</strong> {{ solicitud.description }}</p>
+        
+        <!-- Tipo de emergencia -->
+        <p><strong>Tipo de Emergencia:</strong> {{ solicitud.emergencyType }}</p>
+        
+        <!-- ID de la solicitud -->
+        <p><strong>ID Solicitud:</strong> {{ solicitud.id }}</p>
+        
+        <!-- Ubicación de la emergencia -->
+        <p><strong>Ubicación:</strong> {{ solicitud.location }}</p>
+        
+        <!-- Ubicación del paramédico -->
+        <p><strong>Ubicación del Paramédico:</strong> {{ solicitud.paramedicLocation }}</p>
+        
+        <!-- Nombre del paramédico -->
+        <p><strong>Nombre del Paramédico:</strong> {{ solicitud.paramedicName }}</p>
+        
+        <!-- Severidad de la emergencia -->
+        <p><strong>Severidad:</strong> {{ solicitud.severity }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Si no hay solicitudes -->
+  <ng-template #noData>
+    <p>No hay solicitudes para mostrar en este momento.</p>
+  </ng-template>
+

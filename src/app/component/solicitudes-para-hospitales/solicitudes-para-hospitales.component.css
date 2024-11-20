@@ -1,0 +1,115 @@
+/* solicitudes-para-hospitales.component.css */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .btn-home {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-home:hover {
+    background-color: #0056b3;
+  }
+  
+  .solicitudes-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .solicitud-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .solicitud-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .solicitud-item h3 {
+    color: #333;
+    font-size: 22px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  
+  .solicitud-item p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .solicitud-item p strong {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  /* Diseño para cada sección de información */
+  .solicitud-item p {
+    margin-bottom: 8px;
+  }
+  
+  /* Estilo para los títulos dentro de cada solicitud */
+  .solicitud-item p strong {
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  /* Estilo para el contenedor de solicitudes vacías */
+  ng-template p {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+  }
+  
+  /* Estilo de la lista en general */
+  .solicitudes-list {
+    padding: 0;
+  }
+  
+  /* Mejorar la legibilidad de las coordenadas */
+  .solicitud-item p.location {
+    font-size: 14px;
+    color: #444;
+    font-style: italic;
+  }
+  
+  /* General */
+  .solicitudes-list li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Agregar márgenes para cada solicitud */
+  .solicitudes-list li + li {
+    margin-top: 15px;
+  }
+  
