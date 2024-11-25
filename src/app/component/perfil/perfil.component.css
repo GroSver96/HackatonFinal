@@ -1,0 +1,136 @@
+/* Estilos generales del encabezado */
+.app-header {
+    background-color: #388E3C; /* Verde más oscuro */
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Animación de aparición */
+  }
+  
+  /* Animación de desvanecimiento */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Estilos para la barra de navegación */
+  .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Estilos del botón de navegación */
+  .navigation button {
+    background-color: #4CAF50; /* Verde más oscuro para los botones */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  /* Animación de deslizamiento de botones */
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Efecto hover en el botón */
+  .navigation button:hover {
+    background-color: #388E3C; /* Verde aún más oscuro al hacer hover */
+    transform: scale(1.05);
+  }
+  
+  /* Estilos para el contenedor del perfil */
+  .profile-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 700px;
+    margin: 30px auto;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  /* Animación de desvanecimiento y deslizamiento para el perfil */
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Estilos de los títulos en el perfil */
+  .profile-container h2 {
+    color: #388E3C; /* Verde oscuro para los títulos */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    animation: slideLeft 0.7s ease-out;
+  }
+  
+  /* Animación de deslizamiento para el título */
+  @keyframes slideLeft {
+    from {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Estilo de los párrafos del perfil */
+  .profile-container p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  
+  .profile-container strong {
+    color: #388E3C; /* Verde oscuro para las etiquetas */
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .profile-container {
+      width: 90%;
+      padding: 20px;
+    }
+    
+    .navigation {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .navigation button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2rem;
+    }
+  }
+  

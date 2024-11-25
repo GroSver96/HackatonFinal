@@ -1,45 +1,134 @@
-/* Estilos para el header */
+/* Estilo general */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f8f2; /* Fondo suave con un tono verde pálido */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centrar contenido horizontalmente */
+  align-items: center; /* Centrar contenido verticalmente */
+  flex-direction: column;
+  height: 100vh; /* Asegura que la altura sea la de la pantalla */
+  background-image: linear-gradient(135deg, #7DBB47 0%, #A8D08D 100%); /* Degradado de verdes */
+  overflow-y: auto; /* Habilitar scroll si el contenido se desborda */
+}
+
+/* Encabezado */
 .app-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    text-align: center;
+  width: 100%;
+  background-color: #3b7a57; /* Verde más oscuro para el encabezado */
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fijar el encabezado en la parte superior */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Asegura que el encabezado esté encima del contenido */
+}
+
+/* Contenedor principal para los hospitales */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar el contenido dentro del contenedor */
+  margin-top: 80px; /* Añadir un margen superior para evitar que el contenido se sobreponga al encabezado fijo */
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Permite desplazarse cuando haya mucho contenido */
+  flex-grow: 1; /* Permite que este contenedor ocupe todo el espacio disponible */
+  justify-content: center; /* Asegura que el contenido dentro se centre verticalmente */
+}
+
+/* Lista de los hospitales */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se acomoden en varias filas */
+  justify-content: center; /* Centra las tarjetas dentro del contenedor */
+}
+
+li {
+  width: 100%;
+  max-width: 350px; /* Limitar el tamaño máximo de las tarjetas */
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+.hospital-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Asegura que las tarjetas ocupen todo el ancho disponible */
+  animation: slideIn 1s ease-in-out;
+}
+
+.hospital-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hospital-card h2 {
+  color: #3b7a57; /* Verde oscuro */
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.hospital-card p {
+  color: #4a4a4a;
+  font-size: 14px;
+  margin-bottom: 5px;
+  line-height: 1.6;
+}
+
+/* Botón de inicio y desplazamiento */
+button {
+  background-color: #3b7a57; /* Verde oscuro */
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+  max-width: 400px; /* Limitar el tamaño del botón */
+}
+
+button:hover {
+  background-color: #A8D08D; /* Verde más claro */
+  transform: scale(1.05);
+}
+
+/* Animación de entrada de las tarjetas */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  /* Estilos para la lista de hospitales */
-  ul {
-    list-style-type: none;
-    padding: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Estilos para cada hospital */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
   .hospital-card {
-    border: 1px solid #ddd;
     padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    background-color: #f9f9f9;
   }
-  
-  .hospital-card h2 {
-    color: #4CAF50;
-  }
-  
-  .hospital-card p {
-    margin: 5px 0;
-  }
-  
+
   button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
+    width: 100%;
   }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+}

@@ -1,7 +1,9 @@
+<body>
+
 <header class="app-header">
   <!-- Botón de inicio -->
   <nav class="navigation"> 
-      <h1>requerimiento-paramedico</h1>
+      <h1>Requerimiento Paramedico</h1>
     <button (click)="goHome()">Inicio</button>
   </nav>
 </header>
@@ -22,9 +24,12 @@
             <li><strong>Description</strong> {{ request.description}}</li>
         </ul>
     </span>
+
       <!-- Botón para editar solicitud -->
+    <div class="button-container">
       <button (click)="editRequest(request.id)">Editar</button>
       <button (click)="deleteRequest(request.id)">Eliminar</button>
+    </div>
     </li>
   </ul>
 
@@ -45,3 +50,5 @@
     </form>
   </div>
 </div>
+  
+</body>

@@ -1,0 +1,157 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    background-image: linear-gradient(135deg, #b0e57c 0%, #5f9e3a 100%); /* Fondo lime */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado del contenido */
+    align-items: center;
+    min-height: 100vh;
+    height: auto; /* Permite que el contenido crezca más allá de la pantalla */
+    overflow-y: auto; /* Habilitar scroll vertical */
+}
+
+/* Contenedor del formulario */
+.registro-form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 20px 0; /* Agregado margen para evitar que el formulario toque el borde superior */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animación del formulario */
+.registro-form {
+    transform: scale(0.95);
+}
+.registro-form:hover {
+    transform: scale(1);
+}
+
+/* Título del formulario */
+/* Título del formulario */
+.registro-form h2 {
+    color: #8cc63f; /* Color lime para el título */
+    text-align: center; /* Alineación centrada */
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-bottom: 2px solid #8cc63f;
+    padding-bottom: 10px;
+}
+
+
+/* Estilos para cada campo */
+.registro-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas de los campos */
+.registro-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Estilos de los campos de entrada */
+.registro-form input,
+.registro-form select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de enfoque */
+.registro-form input:focus,
+.registro-form select:focus {
+    border: 2px solid #8cc63f; /* Color lime al enfocar */
+    box-shadow: 0 0 5px rgba(140, 198, 63, 0.6);
+    outline: none;
+}
+
+/* Botón de enviar */
+button {
+    background-color: #8cc63f; /* Color lime */
+    color: white;
+    border: none;
+    padding: 12px 18px; /* Reducir el tamaño del botón */
+    font-size: 14px; /* Ajustar el tamaño de la fuente */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Efecto hover del botón */
+button:hover {
+    background-color: #76b02d; /* Verde más oscuro al hacer hover */
+    transform: scale(1.05);
+}
+
+/* Estilo del botón de inicio */
+header .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4a7f33; /* Fondo más oscuro para la barra de navegación */
+    color: white;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header .navigation h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    
+}
+
+/* Botón de inicio más pequeño con mayor control de altura */
+header .navigation button {
+    background-color: #8cc63f;
+    color: white;
+    border: none;
+    padding: 6px 16px; /* Reduce la altura del botón */
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Ancho ajustado al contenido */
+    min-width: 120px; /* Asegura que el botón no sea demasiado pequeño */
+    height: auto; /* Ajuste automático de la altura */
+}
+
+header .navigation button:hover {
+    background-color: #76b02d; /* Verde más oscuro al hacer hover */
+    transform: scale(1.05);
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .registro-form {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    /* Botón de inicio más pequeño en dispositivos pequeños */
+    header .navigation button {
+        font-size: 12px; /* Aún más pequeño en pantallas muy pequeñas */
+        padding: 4px 12px; /* Ajuste del tamaño */
+        min-width: 100px; /* Botón más compacto */
+    }
+}

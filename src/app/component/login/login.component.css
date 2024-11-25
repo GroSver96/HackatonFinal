@@ -1,0 +1,152 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f7fa; /* Fondo suave */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(135deg, #1a2058 0%, #001335 100%); /* Fondo degradado */
+    animation: gradientAnimation 10s ease infinite; /* Animación de fondo */
+  }
+  
+  
+  /* Contenedor principal */
+  .login-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Animación de entrada */
+    transform: translateY(20px); /* Animación de desplazamiento */
+  }
+  
+  /* Animación de aparición */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Título */
+  .login-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: fadeInText 1.5s ease-in-out;
+  }
+  
+  /* Animación del título */
+  @keyframes fadeInText {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Grupos de formularios */
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  /* Etiquetas */
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 1em;
+  }
+  
+  /* Campos de entrada */
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #2575fc;
+    outline: none;
+    box-shadow: 0 0 10px rgba(37, 117, 252, 0.4);
+    transform: scale(1.02);
+  }
+  
+  /* Botón de envío */
+  button[type="submit"] {
+    background-color: #2575fc;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #4b9ef5;
+    transform: translateY(-3px); /* Pequeña animación de desplazamiento */
+  }
+  
+  /* Enlace de registro */
+  .register-link {
+    margin-top: 20px;
+  }
+  
+  .register-link p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .register-link a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .register-link a:hover {
+    color: #4b9ef5;
+    text-decoration: underline;
+  }
+  
+  /* Mensaje de error */
+  .error {
+    color: #e74c3c;
+    margin-top: 15px;
+    font-size: 0.95em;
+    animation: shakeError 0.5s ease-in-out; /* Animación de error */
+  }
+  
+  /* Animación del mensaje de error */
+  @keyframes shakeError {
+    0% { transform: translateX(-5px); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
+  
